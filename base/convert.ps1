@@ -2,9 +2,9 @@ do{
 $excel = New-Object -ComObject excel.application
 $ext = ".xls"
 $random = Get-Random
-$get_date = Get-Date
-$date_string = ([DateTime]($get_date)).addMinutes(15).ToString('mm/dd/yyyy')
-$dest = "C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\$random-file_$date_string$ext"
+$get_date = Get-Date -UFormat "%m-%d-%Y"
+#$date_string = ([DateTime]($get_date)).addMinutes(15).ToString('mm/dd/yyyy')
+$dest = "C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\$random-file_$get_date$ext"
 $excel.visible = $True
 
 $objWorkbook = $excel.workbooks.Open("C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel1.xls")
