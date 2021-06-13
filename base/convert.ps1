@@ -23,17 +23,17 @@ $workbook = $excel.Workbooks.Add()
 $workbook.SaveAs($outputpath) 
 $excel.Quit()
  
- $excel.displayAlerts = $false # don't prompt the user
- $excel.visible = $false
- $excel.displayAlerts=$false
- #$xlPasteValues = $wb1.Range('A1:G1').EntireColumn
- $wb1=$excel.workbooks.open($SourceWorkbook, $null, $true)
- $wb2=$excel.workbooks.open($TargetWorkbook)
+$excel.displayAlerts = $false # don't prompt the user
+$excel.visible = $false
+$excel.displayAlerts=$false
+#$xlPasteValues = $wb1.Range('A1:G1').EntireColumn
+$wb1=$excel.workbooks.open($SourceWorkbook, $null, $true)
+$wb2=$excel.workbooks.open($TargetWorkbook)
 
 $targetRange=$wb2.Worksheets.Item(1).Range('A1:G1').EntireColumn
- $wb1.Worksheets.Item(1).Range('A1:G1').EntireColumn.copy()
- $wb2.Worksheets.Item(1).Activate()
- $targetRange.PasteSpecial(-4163)
+$wb1.Worksheets.Item(1).Range('A1:G1').EntireColumn.copy()
+$wb2.Worksheets.Item(1).Activate()
+$targetRange.PasteSpecial(-4163)
 
 $wb1.close($True)
 $wb2.close($True)
@@ -53,7 +53,7 @@ Get-ChildItem -Path C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Power
     $Workbook.SaveAs($newName)
     $Workbook.Close($true)
     $excel.Quit()
-    spps -n excel	
+    Stop-Process -n excel	
 }
 
 
