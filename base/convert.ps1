@@ -17,12 +17,14 @@ $excel.Quit()
 $SourceWorkbook = 'C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel1.xls' 
 $TargetWorkbook = "C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel_file.xls"
 
+#Creating a blank excel file in which the data is to be pasted
 $excel.visible = $False
 $outputpath = 'C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel_file.xls'
 $workbook = $excel.Workbooks.Add()
 $workbook.SaveAs($outputpath) 
 $excel.Quit()
- 
+
+#Copying Data of cells A1:G1 from 'excel1.xls' to 'excel_file.xls'
 $excel.displayAlerts = $false # don't prompt the user
 $excel.visible = $false
 $excel.displayAlerts=$false
@@ -39,8 +41,7 @@ $wb1.close($True)
 $wb2.close($True)
 $excel.quit()
 
-
-
+#Copying the file from main_excel folder to parent folder and deleting the file from main_excel folder (we can also use Move-Item in this case)
 Copy-Item "C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel_file.xls" -Destination $dest
 Remove-Item 'C:\Users\erdkr\OneDrive\Desktop\Excel-Automation-using-Powershell-Script\main_excel\excel_file.xls'
 
